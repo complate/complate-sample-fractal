@@ -4,7 +4,7 @@
 		"test": "eslint --cache --ext .js --ext .jsx --ignore-path .gitignore *.js components && echo ✓",
 		"site": "npm run compile && fractal build",
 		"server": "fractal start",
-		"server-watch": "nodemon -w dist/views.js -x 'npm run server'",
+		"server-watch": "nodemon -w dist/views.js -w components -e yml -x 'npm run server'",
 		"compile": "faucet --no-fingerprint --compact",
 		"compile-watch": "npm run compile -- --watch"
 	},
