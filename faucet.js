@@ -10,7 +10,7 @@ let js = {
 			jsx: { pragma: "createElement" }
 		}
 	}, {
-		entryPoint: "./components/index.js",
+		entryPoint: "./lib/scripts/index.js",
 		target: "./assets/bundle.js",
 		transpiler: {
 			features: ["es2015"]
@@ -25,7 +25,7 @@ let sass = {
 	},
 	assets: [],
 	bundles: [{
-		entryPoint: "./components/index.scss",
+		entryPoint: "./lib/styles/index.scss",
 		target: "./assets/bundle.css"
 	}]
 };

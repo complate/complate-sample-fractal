@@ -1,7 +1,7 @@
 {
 	"scripts": {
 		"start": "npm-run-all --parallel server-watch compile-watch",
-		"test": "eslint --cache --ext .js --ext .jsx --ignore-path .gitignore *.js components && echo ✓",
+		"test": "eslint --cache --ext .js --ext .jsx --ignore-path .gitignore *.js lib components && echo ✓",
 		"site": "npm run compile && fractal build",
 		"server": "fractal start",
 		"server-watch": "nodemon -w dist/views.js -w components -e yml -x 'npm run server'",
