@@ -10,9 +10,9 @@
 	},
 	"dependencies": {},
 	"devDependencies": {
-		"complate-fractal": "^0.1.4",
+		"complate-fractal": "^0.2.0",
 		"eslint-config-fnd-jsx": "^1.0.1",
-		"faucet-pipeline-sass": "^0.5.0",
+		"faucet-pipeline-sass": "^0.7.0",
 		"nodemon": "^1.11.0",
 		"npm-run-all": "^4.0.2"
 	}
