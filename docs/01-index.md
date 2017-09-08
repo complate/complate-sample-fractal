@@ -2,4 +2,5 @@
 title: Pattern Library
 ---
 
-This is your index page. You can edit its contents at `docs/01-index.md`.
+This pattern library is based on [Fractal](http://fractal.build/) and
+[complate](http://complate.org).

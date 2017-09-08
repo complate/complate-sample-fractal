@@ -1,2 +1,12 @@
 root: true
-extends: fnd-jsx
+
+plugins:
+- compat
+- jsx-a11y
+
+extends:
+- fnd-jsx
+- plugin:jsx-a11y/strict
+
+rules:
+    compat/compat: error

@@ -1,0 +1,6 @@
+status: prototype
+context:
+    items:
+    - foo
+    - bar
+    - baz

@@ -1,20 +1,33 @@
 "use strict";
 
 let fractal = module.exports = require("@frctl/fractal").create();
+let complate = require("complate-fractal");
 let path = require("path");
 
-let complateAdapter = require("complate-fractal")({
-	bundlePath: path.join(__dirname, "dist", "views.js")
-});
+let componentsDir = filepath("components");
 
 fractal.set("project.title", "Pattern Library");
-fractal.components.set("path", filepath("components"));
-fractal.components.engine(complateAdapter);
-fractal.components.set("ext", ".jsx");
+fractal.components.engine(complate({
+	rootDir: __dirname,
+	generateURI
+}));
+fractal.components.set("path", componentsDir);
+fractal.components.set("ext", ".html");
 fractal.docs.set("path", filepath("docs"));
 fractal.web.set("static.path", filepath("assets"));
-fractal.web.set("builder.dest", filepath("dist", "site"));
+fractal.web.set("builder.dest", filepath("dist"));
+
+// NB: invocation context is `{ assetPath }`, providing access to
+//     Fractal-specific URI generation
+function generateURI(type, ...args) {
+	switch(type) {
+	case "common-assets":
+		return this.assetPath(args[0]);
+	default:
+		throw new Error(`invalid URI: ${type}`);
+	}
+}
 
 function filepath(...args) {
-	return path.join(__dirname, ...args);
+	return path.resolve(__dirname, ...args);
 }

@@ -1,19 +1,21 @@
 {
 	"scripts": {
-		"start": "npm-run-all --parallel server-watch compile-watch",
+		"start": "npm-run-all --parallel server compile-watch",
 		"test": "eslint --cache --ext .js --ext .jsx --ignore-path .gitignore *.js lib components && echo ✓",
-		"site": "npm run compile && fractal build",
-		"server": "fractal start",
-		"server-watch": "nodemon -w dist/views.js -w components -e yml -x 'npm run server'",
+		"dist": "npm run compile && npm run site",
+		"site": "fractal build",
+		"server": "fractal start --watch",
 		"compile": "faucet --no-fingerprint --compact",
 		"compile-watch": "npm run compile -- --watch"
 	},
 	"dependencies": {},
 	"devDependencies": {
-		"complate-fractal": "^0.2.0",
-		"eslint-config-fnd-jsx": "^1.0.1",
+		"complate-fractal": "^0.4.0",
+		"eslint-config-fnd-jsx": "^1.1.0",
+		"eslint-plugin-compat": "^2.0.1",
+		"eslint-plugin-jsx-a11y": "^6.0.2",
+		"faucet-pipeline-js": "^0.15.2",
 		"faucet-pipeline-sass": "^0.7.0",
-		"nodemon": "^1.11.0",
-		"npm-run-all": "^4.0.2"
+		"npm-run-all": "^4.1.1"
 	}
 }
