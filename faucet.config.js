@@ -1,33 +1,23 @@
-let js = {
-	manifest: false,
-	bundles: [{
-		entryPoint: "./lib/views/index.jsx",
-		target: "./dist/views.js",
-		format: "cjs",
-		moduleName: "createElement",
-		transpiler: {
-			features: ["es2015", "jsx"],
-			jsx: { pragma: "createElement" }
-		}
-	}, {
-		entryPoint: "./lib/scripts/index.js",
-		target: "./assets/bundle.js",
-		transpiler: {
-			features: ["es2015"]
-		}
-	}]
-};
+"use strict";
 
 let sass = {
-	manifest: {
-		file: "dist/manifest_css.json",
-		baseURI: "/assets"
-	},
-	assets: [],
+	manifest: false,
 	bundles: [{
 		entryPoint: "./lib/styles/index.scss",
 		target: "./assets/bundle.css"
 	}]
 };
 
-module.exports = { sass, js };
+let js = {
+	manifest: false,
+	bundles: [{
+		entryPoint: "./lib/scripts/index.js",
+		target: "./assets/bundle.js"
+	}]
+};
+
+module.exports = {
+	watchDirs: ["./lib", "./components"],
+	sass,
+	js
+};

@@ -1,7 +1,0 @@
-globals:
-    createElement: true
-    context: true
-    path: true
-rules:
-    semi: off
-    no-unused-expressions: off
