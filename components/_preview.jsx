@@ -6,6 +6,10 @@ let stylesheets = [context.uri("common-assets", "bundle.css")];
 let scripts = [context.uri("common-assets", "bundle.js")];
 
 export default function PreviewLayout({ context }, ...children) {
+	if(context.layout === "none") {
+		return children;
+	}
+
 	return <html lang="en">
 		<head>
 			<meta charset="utf-8" />
@@ -27,9 +31,9 @@ function renderStyleSheets(items) {
 		return;
 	}
 
-	return items.map(uri => {
-		return <link rel="stylesheet" href={uri} />;
-	});
+	return items.map(uri => (
+		<link rel="stylesheet" href={uri} />;
+	));
 }
 
 function renderScripts(items) {
@@ -37,7 +41,7 @@ function renderScripts(items) {
 		return;
 	}
 
-	return items.map(uri => {
-		return <script src={uri} />;
-	});
+	return items.map(uri => (
+		<script src={uri} />;
+	));
 }
