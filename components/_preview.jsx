@@ -32,7 +32,7 @@ function renderStyleSheets(items) {
 	}
 
 	return items.map(uri => (
-		<link rel="stylesheet" href={uri} />;
+		<link rel="stylesheet" href={uri} />
 	));
 }
 
@@ -42,6 +42,6 @@ function renderScripts(items) {
 	}
 
 	return items.map(uri => (
-		<script src={uri} />;
+		<script src={uri} />
 	));
 }
